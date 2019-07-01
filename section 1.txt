@@ -59,3 +59,25 @@ kubectl logs <pod name>
 10. apply object config in one directory
 
 kubectl apply -f <directory>
+
+11. 3 type of access mode in persistant volume:
+a. ReadWriteOnce -> Can be used by a single node
+b. ReadOnlyMany -> multiple nodes can read
+c. ReadWriteMany -> can be read and written to by many nodes
+
+12. view kubernetes storage
+
+kubectl get storageclass
+
+13. view object list with different output
+
+kubectl get <object type> -o <wide | json | yaml>
+
+14. view persistant volume
+
+kubectl get pv
+
+15. view persistant volume claim
+
+kubectl get pvc
+
