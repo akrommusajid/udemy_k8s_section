@@ -1,0 +1,61 @@
+Section 2 :
+
+1. deployment file example :
+
+apiVersion: apps/v1
+kind: Deployment ---> name of object
+metadata:
+ name: client-deployment --> name of deployment object
+spec:
+ replicas: 1 --> number copy of pods
+ selector:
+  matchLabels:
+   component: web --> select pod template based on label
+ template:
+  metadata:
+   labels:
+    component: web --> label of pods
+  spec:
+   containers:
+    - name: client
+      image: akrommusajid/multi-client
+      ports:
+       - containerPort: 3000
+
+2. remove object :
+
+kubectl delete -f <object file>
+or
+kubectl delete <object type> <object name>
+
+3. view pod list:
+
+kubectl get pods
+
+4. view deployment list:
+
+kubectl get deployments
+
+5. view deployment detail:
+
+kubectl describe deployment <deployment name>
+
+6. view detile of pod list:
+
+kubectl get pods -o wide
+
+7. update image of deployment with new image from docker:
+
+kubectl set image <object>/<object name> <container name>=<image name:tag>
+
+8. enter terminal of pods:
+
+kubectl exec -it <pod name> sh
+
+9. view logs container of pods:
+
+kubectl logs <pod name>
+
+10. apply object config in one directory
+
+kubectl apply -f <directory>
