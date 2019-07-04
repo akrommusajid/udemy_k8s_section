@@ -1,3 +1,7 @@
+Section 1:
+
+
+
 Section 2 :
 
 1. deployment file example :
@@ -80,4 +84,27 @@ kubectl get pv
 15. view persistant volume claim
 
 kubectl get pvc
+
+16. Type of service:
+a. ClusterIP -> Expose a set of pods to other object in cluster
+b. NodePort -> Expose a set of pods to the outside world (only good for dev purposes!)
+c. LoadBalancer -> (legacy way of getting network traffic into a cluster)
+d. Ingress -> Expose a set of service to outside world
+
+17. create encoded secret
+
+kubectl create secret generic <name> --from-literal <key=value>
+
+18. environment value only provide string
+
+19. manual deployment scale
+
+kubectl scale deployment <deployment name> --replicas=<number>
+
+20. how to deploy ingress
+
+a. create ingress controller : kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/baremetal/service-nodeport.yaml
+b. create ingress service
+
+
 
