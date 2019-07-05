@@ -6,8 +6,7 @@ metadata:
   nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
  rules:
-  - host: kube.jawdat.com
-    http:
+  - http:
      paths:
       - path: /?(.*)
         backend:
