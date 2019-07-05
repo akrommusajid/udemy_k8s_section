@@ -1,6 +1,6 @@
-docker build -t akrommusajid/multi-client:latest -t akrommusajid/multi-client:$SHA -f ./client/Dockerfile ./complex/client
-docker build -t akrommusajid/multi-server:latest -t akrommusajid/multi-server:$SHA -f ./server/Dockerfile ./complex/server
-docker build -t akrommusajid/multi-worker:latest -t akrommusajid/multi-worker:$SHA -f ./worker/Dockerfile ./complex/worker
+docker build -t akrommusajid/multi-client:latest -t akrommusajid/multi-client:$SHA -f ./client/Dockerfile ./client
+docker build -t akrommusajid/multi-server:latest -t akrommusajid/multi-server:$SHA -f ./server/Dockerfile ./server
+docker build -t akrommusajid/multi-worker:latest -t akrommusajid/multi-worker:$SHA -f ./worker/Dockerfile ./worker
 
 docker push akrommusajid/multi-client:latest
 docker push akrommusajid/multi-server:latest
