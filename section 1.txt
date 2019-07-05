@@ -1,6 +1,7 @@
 Section 1:
 
-
+1. Create k8s cluster from bare-metal :
+a. 
 
 Section 2 :
 
@@ -105,6 +106,10 @@ kubectl scale deployment <deployment name> --replicas=<number>
 
 a. create ingress controller : kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/baremetal/service-nodeport.yaml
 b. create ingress service
+
+21. change/set image of container in deployment:
+
+kubectl set image deployments/<deployment name> <continer name>=<docker image>
 
 
 
