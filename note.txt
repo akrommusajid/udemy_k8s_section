@@ -111,5 +111,42 @@ b. create ingress service
 
 kubectl set image deployments/<deployment name> <continer name>=<docker image>
 
+22. in custom kubernetes (bare metal) load balancer service (for nginx ingress controller) can't provide external ip automatically. we must patch service manually.
 
+kubectl patch svc my-nginx-nginx-ingress-controller  -p '{"spec": {"type": "LoadBalancer", "externalIPs":["<ip>"]}}'
 
+23. install helm
+
+a. install package
+$ curl -LO https://git.io/get_helm.sh
+$ chmod 700 get_helm.sh
+$ ./get_helm.sh
+
+b. create RBAC 
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: tiller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: tiller
+    namespace: kube-system
+
+c. helm init
+
+helm init --service-account tiller --upgrade
+
+24. deploy nginx ingress with helm
+
+helm install stable/nginx-ingress --name my-nginx
